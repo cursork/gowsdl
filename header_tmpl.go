@@ -17,6 +17,7 @@ import (
 	"net"
 	"net/http"
 	"time"
+	"github.com/shopspring/decimal"
 
 	{{/*range .Imports*/}}
 		{{/*.*/}}
@@ -26,4 +27,5 @@ import (
 // against "unused imports"
 var _ time.Time
 var _ xml.Name
+var _ decimal.Decimal
 `

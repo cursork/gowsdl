@@ -185,7 +185,7 @@ func (g *GoWSDL) unmarshal() error {
 }
 
 func (g *GoWSDL) resolveXSDExternals(schema *XSDSchema, u *url.URL) error {
-	download := func(u1 *url.URL, loc string) error{
+	download := func(u1 *url.URL, loc string) error {
 		location, err := u1.Parse(loc)
 		if err != nil {
 			return err
@@ -232,15 +232,14 @@ func (g *GoWSDL) resolveXSDExternals(schema *XSDSchema, u *url.URL) error {
 		return nil
 	}
 
-
 	for _, impts := range schema.Imports {
-		if e := download(u, impts.SchemaLocation); e!= nil {
+		if e := download(u, impts.SchemaLocation); e != nil {
 			return e
 		}
 	}
 
 	for _, incl := range schema.Includes {
-		if e := download(u, incl.SchemaLocation); e!= nil {
+		if e := download(u, incl.SchemaLocation); e != nil {
 			return e
 		}
 	}
@@ -383,7 +382,7 @@ var xsd2GoTypes = map[string]string{
 	"token":         "string",
 	"float":         "float32",
 	"double":        "float64",
-	"decimal":       "float64",
+	"decimal":       "decimal.Decimal",
 	"integer":       "int32",
 	"int":           "int32",
 	"short":         "int16",
